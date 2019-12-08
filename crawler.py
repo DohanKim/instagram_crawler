@@ -72,12 +72,13 @@ while True:
             time.sleep(1)
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'img.FFVAD')))
             image = driver.find_element_by_css_selector('img.FFVAD').get_attribute('src')
-            driver.close()
-            driver.switch_to.window(tabs[0])
         except Exception as e:
             print(name)
             print("Image extract error")
             print(e)
+        finally:
+            driver.close()
+            driver.switch_to.window(tabs[0])
 
         for meta_datum in meta_data:
             if price_pattern.search(meta_datum) != None:
