@@ -59,6 +59,8 @@ while True:
 
     if len(meta_data) > 0:
         name = meta_data[0] if len(meta_data[0]) < 80 or len(meta_data) == 1 else meta_data[1]
+        name = name.replace("#", "")
+
         price = ""
         worktime = ""
         image = ""
